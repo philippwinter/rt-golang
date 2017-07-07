@@ -12,7 +12,7 @@ jobs:
           background: true
       - run:
           name: Validate test server is running
-          command: curl --retry 10 --retry-delay 1 --retry-connrefused http://localhost:41414/
+          command: wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=5 http://localhost:41414/
       - run:
           name: Build project
           command: go build
