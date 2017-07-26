@@ -3,6 +3,7 @@ package rt
 import (
 	"bytes"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"testing"
 )
@@ -21,6 +22,7 @@ func TestResponse_JsonToDocMap(t *testing.T) {
 
 	docMap := resp.MustParseAsJson()
 	if docMap["name"] != "rt" {
-		t.Fatalf("JSON wrongfully unwrapped")
+		log.Printf("JSON wrongfully unwrapped\n")
+		t.Fatal()
 	}
 }

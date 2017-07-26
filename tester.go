@@ -12,7 +12,7 @@ type Tester struct {
 
 func (tester *Tester) Must(resp *http.Response, err error) *Response {
 	if err != nil {
-		log.Printf("Could not perform request: %+v", err)
+		log.Printf("Could not perform request: %+v\n", err)
 		tester.FailNow()
 	}
 

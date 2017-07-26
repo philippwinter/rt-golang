@@ -2,6 +2,7 @@ package rt
 
 import (
 	"github.com/philippwinter/rt-golang/testserver"
+	"log"
 	"testing"
 )
 
@@ -18,6 +19,7 @@ func TestSimpleGet(t *testing.T) {
 	docMap := resp.MustParseAsJson()
 
 	if docMap["hello"] != "world" {
-		t.Fatalf("Did not receive expected input: %+v", docMap)
+		log.Printf("Did not receive expected input: %+v\n", docMap)
+		t.Error()
 	}
 }
